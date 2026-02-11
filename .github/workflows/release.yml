@@ -71,8 +71,11 @@ jobs:
         working-directory: frontend
 
       - name: Build with Wails
+        shell: bash
         run: |
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
           export PATH=$PATH:$(go env GOPATH)/bin
+
           if [ "${{ matrix.goos }}" = "linux" ]; then
             wails build -platform ${{ matrix.platform }} -tags webkit2_41
           else
