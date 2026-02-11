@@ -74,7 +74,7 @@ jobs:
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
           if [ "${{ matrix.goos }}" = "linux" ]; then
-            wails build -platform ${{ matrix.platform }} -tags webkit2gtk_4_1
+            wails build -platform ${{ matrix.platform }} -tags webkit2_41
           else
             wails build -platform ${{ matrix.platform }}
           fi
@@ -121,4 +121,4 @@ jobs:
           generate_release_notes: true
           files: artifacts/*
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
