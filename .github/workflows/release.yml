@@ -112,6 +112,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Waiting
+        run: sleep 120s
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
