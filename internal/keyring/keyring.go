@@ -65,7 +65,9 @@ func GetGitHubToken() (string, error) {
 		return "", nil // No token available
 	}
 
-	data, readErr := os.ReadFile(path)
+	cleanPath := filepath.Clean(path)
+
+	data, readErr := os.ReadFile(cleanPath)
 	if readErr != nil {
 		if os.IsNotExist(readErr) {
 			return "", nil // No token
