@@ -36,7 +36,9 @@ func DefaultConfigPath() (string, error) {
 
 // Load reads and parses the configuration file
 func Load(path string) (*Config, error) {
-	data, err := os.ReadFile(path)
+	cleanPath := filepath.Clean(path)
+
+	data, err := os.ReadFile(cleanPath)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, fmt.Errorf("config file not found: %s", path)
@@ -56,7 +58,7 @@ func Load(path string) (*Config, error) {
 func Save(path string, cfg *Config) error {
 	// Ensure directory exists
 	dir := filepath.Dir(path)
-	if err := os.MkdirAll(dir, 0755); err != nil {
+	if err := os.MkdirAll(dir, 0700); err != nil {
 		return fmt.Errorf("failed to create config directory: %w", err)
 	}
 
