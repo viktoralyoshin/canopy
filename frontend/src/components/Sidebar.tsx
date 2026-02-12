@@ -1,4 +1,4 @@
-import { Home, FolderGit2, GitPullRequest, Users, Settings, HelpCircle, LogOut } from 'lucide-react';
+import { Home, Settings, HelpCircle, LogOut } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -6,9 +6,6 @@ const Sidebar = () => {
 
   const navItems = [
     { icon: Home, label: 'Home', path: '/' },
-    { icon: FolderGit2, label: 'Projects', path: '/projects' },
-    { icon: GitPullRequest, label: 'Pull Requests', path: '/pull-requests' },
-    { icon: Users, label: 'Team', path: '/team' },
     { icon: Settings, label: 'Settings', path: '/settings' },
   ];
 
@@ -50,20 +47,8 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      {/* Upgrade CTA */}
-      <div className="p-4">
-        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-4 border border-indigo-100">
-          <h3 className="font-semibold text-sm mb-2">Upgrade to Pro</h3>
-          <p className="text-xs text-gray-600 mb-3">
-            Get 1 month free and unlock Pro features
-          </p>
-          <button className="w-full bg-indigo-600 text-white text-sm py-2 rounded-lg hover:bg-indigo-700 transition-colors">
-            Upgrade
-          </button>
-        </div>
-      </div>
-
       {/* Bottom Actions */}
+      <div className="mt-auto"></div>
       <div className="p-4 border-t border-gray-200">
         <button className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg w-full transition-colors">
           <HelpCircle size={20} />
